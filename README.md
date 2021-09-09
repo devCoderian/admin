@@ -1,4 +1,5 @@
-# Getting Started with Create React App
+# 고객 관리 시스템
+본 프로젝트는 react와 mysql로 이루어진 고객 관리 시스템 포트폴리오 입니다. 
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
