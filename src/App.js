@@ -1,6 +1,19 @@
 import logo from './logo.svg';
 import './App.css';
 import Customer from './components/Customer';
+import { Table, TableHead, TableRow, TableCell, TableBody} from '@material-ui/core';
+import { withStyles } from '@material-ui/core/styles';
+import { Paper } from '@material-ui/core';
+const styles = theme => ({
+  root:{
+    width:'100%',
+    marginTop: theme.spacing.unit * 3,
+    overflowX: 'auto'
+  },
+  table: {
+    minWidth: 1080
+  }
+})
 
 const customers =[{
   'id': 1,
@@ -27,14 +40,27 @@ const customers =[{
   'job':'무직'
 }];
 
-function App() {
+function App(props) {
+  const {classes} = props; 
   return(
   // 메인 자바스크립트 관리
-    <>
-        {
-        customers.map((customer)=>{
+    <Paper className={classes.root}>
+     <Table className={classes.table}>
+       <TableHead>
+         <TableRow>
+           <TableCell>번호</TableCell>
+           <TableCell>이미지</TableCell>
+           <TableCell>이름</TableCell>
+           <TableCell>생년월일</TableCell>
+           <TableCell>성별</TableCell>
+           <TableCell>직업</TableCell>
+         </TableRow>
+       </TableHead>
+        <TableBody>
+        {customers.map((customer)=>{
           return(
             <Customer
+                key ={customer.id}
                 id = {customer.id}
                 image = {customer.image}
                 name = {customer.name}
@@ -45,7 +71,9 @@ function App() {
           )
         })
       }
-    </>
+      </TableBody>
+      </Table>
+    </Paper>
   
   )};
-export default App;
+export default withStyles(styles)(App);

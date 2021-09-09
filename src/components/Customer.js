@@ -1,20 +1,28 @@
 import React from 'react';
-
+import { TableRow, TableCell  } from '@material-ui/core';
 function Customer(props) {
     return(
-        <div>      
-        <CustomerProfile
-        image = {props.image}
-        name = {props.name}
-        id = {props.id}
-        />
+        // <div>      
+        // <CustomerProfile
+        // image = {props.image}
+        // name = {props.name}
+        // id = {props.id}
+        // />
 
-        <CustomerInfo
-            birth = {props.birth}
-            gender = {props.gender}
-            job= {props.job}
-        />
-        </div>
+        // <CustomerInfo
+        //     birth = {props.birth}
+        //     gender = {props.gender}
+        //     job= {props.job}
+        // />
+        // </div>
+       <TableRow>
+           <TableCell>{props.id}</TableCell>
+           <TableCell><img src = {props.image} alt = "profile"/></TableCell>
+           <TableCell>{props.name}</TableCell>
+           <TableCell>{props.birth}</TableCell>
+           <TableCell>{props.gender}</TableCell>
+           <TableCell>{props.job}</TableCell>
+       </TableRow>
     )
 }
 
