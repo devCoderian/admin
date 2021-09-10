@@ -4,7 +4,8 @@ import Customer from './components/Customer';
 import { Table, TableHead, TableRow, TableCell, TableBody} from '@material-ui/core';
 import { withStyles } from '@material-ui/core/styles';
 import { Paper } from '@material-ui/core';
-import { useEffect, useLayoutEffect, useState } from 'react';
+import { useEffect, useState, useRef, useInterval } from 'react';
+import { CircularProgress } from '@material-ui/core';
 const styles = theme => ({
   root:{
     width:'100%',
@@ -46,7 +47,15 @@ function App(props) {
   const {classes} = props; 
 
   const [customers, setCustomers] = useState([]);
+  // const [isLoading, setIsLoading] = useState(0);
+  const [completed, setCompleted] = useState(0);
 
+  const progress = () =>{
+    console.log(completed);
+    completed>=100 ?setCompleted(0) : setCompleted(completed +1);
+    // setCompleted(completed>=100 ? 0 : completed+=1)
+
+  }
   const callApi = async () =>{
     const res = await fetch('/api/customers',{
       headers:{
@@ -56,10 +65,29 @@ function App(props) {
     const body = await res.json();
     return body;
   }
+
   useEffect(()=>{
-    console.log('실행');
-    callApi().then(res => setCustomers(res));
+  
+    console.log('실행', customers);
+    callApi().then(res => setCustomers(res))
+    .catch(err => console.log(err));
+
+    // progress();
+
+    //timer();
+    // setInterval(()=>{
+    //   progress();
+    // }, 20);
+    // timer();
   },[]);
+  // useEffect(()=>{
+  
+  //   setInterval(()=>{
+  //     progress();
+  //   }, 20);
+    
+  // },[customers]);
+
 
   return(
   // 메인 자바스크립트 관리
@@ -89,8 +117,15 @@ function App(props) {
                   job= {customer.job}
               />
             )
-        }):""
+        }):
+        <TableRow>
+        <TableCell colSpan = "6" align = "center">
+        <CircularProgress className = {classes.progress} 
+        variant ="determinate" value={completed} />
+      </TableCell>
+      </TableRow>
       }
+    
       </TableBody>
       </Table>
     </Paper>
