@@ -7,10 +7,11 @@ import { Paper } from '@material-ui/core';
 import { useEffect, useState, useRef, useInterval } from 'react';
 import { CircularProgress } from '@material-ui/core';
 import CustomerAdd from './components/CustomerAdd';
+import CustomerDelete from './components/CustomerDelete';
 const styles = theme => ({
   root:{
     width:'100%',
-    marginTop: theme.spacing.unit * 3,
+    marginTop: '50px',
     overflowX: 'auto'
   },
   table: {
@@ -30,7 +31,7 @@ function App(props) {
     .catch(err => console.log(err));
   }
   const callApi = async () =>{
-    const res = await fetch('/api/customers',{
+    const res = await fetch('/api/customer',{
       headers:{
         'Accept':'application /json'
       }
@@ -59,6 +60,7 @@ function App(props) {
            <TableCell>생년월일</TableCell>
            <TableCell>성별</TableCell>
            <TableCell>직업</TableCell>
+           <TableCell>설정</TableCell>
          </TableRow>
        </TableHead>
         <TableBody>
@@ -70,9 +72,10 @@ function App(props) {
                   id = {customer.id}
                   image = {customer.image}
                   name = {customer.name}
-                  birth = {customer.birthday}
+                  birthday = {customer.birthday}
                   gender = {customer.gender}
                   job= {customer.job}
+                  refresh = {refresh}
               />
             )
         })
