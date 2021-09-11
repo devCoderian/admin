@@ -8,6 +8,7 @@ import { useEffect, useState, useRef, useInterval } from 'react';
 import { CircularProgress } from '@material-ui/core';
 import CustomerAdd from './components/CustomerAdd';
 import CustomerDelete from './components/CustomerDelete';
+import Header from './components/Header';
 const styles = theme => ({
   root:{
     width:'100%',
@@ -16,6 +17,12 @@ const styles = theme => ({
   },
   table: {
     minWidth: 1080
+  },
+  menu:{
+    marginTop: 15,
+    marginBottom: 15,
+    display: 'flex',
+    justifyContent: 'center'
   }
 })
 
@@ -47,20 +54,19 @@ function App(props) {
     .catch(err => console.log(err));
   },[]);
 
+  const cellList = ["번호", "프로필 이미지", "이름" , "생년월일", "성별", "직업", "설정"]
   return(
   // 메인 자바스크립트 관리
   <div>
+    <Header />
+    <div className={classes.menu}><CustomerAdd refresh ={refresh}/></div>
     <Paper className={classes.root}>
      <Table className={classes.table}>
        <TableHead>
          <TableRow>
-           <TableCell>번호</TableCell>
-           <TableCell>이미지</TableCell>
-           <TableCell>이름</TableCell>
-           <TableCell>생년월일</TableCell>
-           <TableCell>성별</TableCell>
-           <TableCell>직업</TableCell>
-           <TableCell>설정</TableCell>
+             {cellList.map(c =>{
+               return <TableCell>{c}</TableCell>
+             })}
          </TableRow>
        </TableHead>
         <TableBody>
@@ -84,7 +90,6 @@ function App(props) {
       </TableBody>
       </Table>
     </Paper>
-    <CustomerAdd refresh ={refresh}/>
     </div>
   
   )};
