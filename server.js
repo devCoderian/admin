@@ -20,6 +20,8 @@ const connection = mysql.createConnection({
 });
 connection.connect();
 
+const multer = require('multer'); //별도의 설치 필요 
+const upload = multer({dest:'./upload'}); //업로드 폴더 설정
 app.get('/api/customers', (req, res)=>{
   connection.query(
     "SELECT * FROM CUSTOMER",
@@ -28,6 +30,25 @@ app.get('/api/customers', (req, res)=>{
     }
   );
   //  res.send();
+});
+
+//image경로를 통해 업로드 폴더를 사용자가 접근하게 하기 위해 설정
+app.use('/image', express.static('./upload'));
+
+app.post('/api/customer', upload.single('image'), (req, res)=>{
+  let sql = 'INSERT INTO CUSTOMER VALUES (null, ?, ?, ?, ?, ?)';
+  let image = 'http://localhost:5000/image/' + req.file.filename;
+  let name = req.body.name;
+  let birthday = req.body.birthday;
+  let gender = req.body.gender;
+  let job = req.body.job;
+  let params = [image, name, birthday, gender, job];
+  connection.query(sql, params,
+    (err, rows, fields) =>{
+        res.send(rows);
+        // console.log(rows);
+        console.log(err);
+    });
 });
 
 app.listen(port, () => console.log(`Listening server ${port}`));
