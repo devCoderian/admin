@@ -112,7 +112,7 @@ function App(props) {
                   id = {customer.id}
                   image = {customer.image}
                   name = {customer.name}
-                  birth = {customer.birth}
+                  birth = {customer.birthday}
                   gender = {customer.gender}
                   job= {customer.job}
               />
