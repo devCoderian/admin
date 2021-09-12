@@ -7,7 +7,8 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 In the project directory, you can run:
 
-### `make a table in mysql`
+<ol>
+	<li>### `make a table in mysql`</li> 
 
 '''
 CREATE TABLE CUSTOMER (
@@ -25,7 +26,7 @@ CREATE TABLE CUSTOMER (
 ### `make a database.json file in root folder`
 
 put mysql info into database.json file.
-## example
+
 '''
 {
     "host":"",
@@ -40,6 +41,8 @@ put mysql info into database.json file.
 
 
 ### `Type " npm install " inside the client directory ( Download Front-end Dependencies )`
+
+</ol>
 
 **Note: this is a one-way operation. Once you `eject`, you can’t go back!**
 
