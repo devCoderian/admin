@@ -7,7 +7,7 @@ import InputBase from '@material-ui/core/InputBase';
 import { alpha, makeStyles } from '@material-ui/core/styles';
 import MenuIcon from '@material-ui/icons/Menu';
 import SearchIcon from '@material-ui/icons/Search';
-
+import CustomerAdd from './CustomerAdd';
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
@@ -62,7 +62,7 @@ const useStyles = makeStyles((theme) => ({
     },
   },
 }));
-function Header() {
+function Header(props) {
     const classes = useStyles();
     return (
     <div className={classes.root}>
@@ -79,6 +79,7 @@ function Header() {
           <Typography className={classes.title} variant="h6" noWrap>
             고객 관리 시스템
           </Typography>
+          <div className={classes.menu}><CustomerAdd refresh ={props.refresh}/></div>
         </Toolbar>
       </AppBar>
     </div>

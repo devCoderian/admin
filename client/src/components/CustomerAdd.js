@@ -68,7 +68,7 @@ function CustomerAdd(props){
     return(
     <>
         <div>
-            <Button variant = "contained" color="primary" onClick = {handleClickOpen}>
+            <Button variant = "contained" color="default" onClick = {handleClickOpen}>
             고객 추가하기
             </Button>
         </div>

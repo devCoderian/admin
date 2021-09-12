@@ -58,8 +58,7 @@ function App(props) {
   return(
   // 메인 자바스크립트 관리
   <div>
-    <Header />
-    <div className={classes.menu}><CustomerAdd refresh ={refresh}/></div>
+    <Header refresh = {refresh} />
     <Paper className={classes.root}>
      <Table className={classes.table}>
        <TableHead>
