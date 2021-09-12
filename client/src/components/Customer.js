@@ -1,17 +1,18 @@
 import React from 'react';
 import { TableRow, TableCell  } from '@material-ui/core';
 import CustomerDelete from './CustomerDelete';
+import { DataGrid } from '@material-ui/data-grid';
 function Customer(props) {
     console.log(props);
     return(
+       
        <TableRow>
-           <TableCell>{props.id}</TableCell>
-           <TableCell ><img src = {props.image} alt = "profile" style ={{width:'100px', height:'100px'}}/></TableCell>
-           <TableCell>{props.name}</TableCell>
-           <TableCell>{props.birthday}</TableCell>
-           <TableCell>{props.gender}</TableCell>
-           <TableCell>{props.job}</TableCell>
-           <TableCell><CustomerDelete id={props.id} refresh={props.refresh}/></TableCell>
+           <TableCell style={{textAlign:"center"}}><img src = {props.image} alt = "profile" style ={{width:'100px', height:'100px'}}/></TableCell>
+           <TableCell style={{textAlign:"center"}}>{props.name}</TableCell>
+           <TableCell style={{textAlign:"center"}}>{props.birthday}</TableCell>
+           <TableCell style={{textAlign:"center"}}>{props.gender}</TableCell>
+           <TableCell style={{textAlign:"center"}}>{props.job}</TableCell>
+           <TableCell style={{textAlign:"center"}}><CustomerDelete id={props.id} refresh={props.refresh}/></TableCell>
        </TableRow>
     )
 }

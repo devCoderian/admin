@@ -5,18 +5,16 @@ import { Table, TableHead, TableRow, TableCell, TableBody} from '@material-ui/co
 import { withStyles } from '@material-ui/core/styles';
 import { Paper } from '@material-ui/core';
 import { useEffect, useState, useRef, useInterval } from 'react';
-import { CircularProgress } from '@material-ui/core';
-import CustomerAdd from './components/CustomerAdd';
-import CustomerDelete from './components/CustomerDelete';
 import Header from './components/Header';
 const styles = theme => ({
   root:{
     width:'100%',
-    marginTop: '50px',
-    overflowX: 'auto'
+    margin: '50px auto',
+    overflowX: 'auto',
+    maxWidth: '80%',
   },
   table: {
-    minWidth: 1080
+    minWidth: 1080,
   },
   menu:{
     marginTop: 15,
@@ -54,17 +52,17 @@ function App(props) {
     .catch(err => console.log(err));
   },[]);
 
-  const cellList = ["번호", "프로필 이미지", "이름" , "생년월일", "성별", "직업", "설정"]
+  const cellList = ["프로필 이미지", "이름" , "생년월일", "성별", "직업", "설정"]
   return(
   // 메인 자바스크립트 관리
   <div>
     <Header refresh = {refresh} />
     <Paper className={classes.root}>
      <Table className={classes.table}>
-       <TableHead>
-         <TableRow>
+       <TableHead >
+         <TableRow style ={{background:'#3f51b5'}}>
              {cellList.map(c =>{
-               return <TableCell>{c}</TableCell>
+               return <TableCell style={{textAlign:"center", color: '#fff'}}>{c}</TableCell>
              })}
          </TableRow>
        </TableHead>

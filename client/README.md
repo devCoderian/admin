@@ -3,34 +3,43 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+## To use this application
 
 In the project directory, you can run:
 
-### `npm start`
+### `make a table in mysql`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+'''
+CREATE TABLE CUSTOMER (
+	id INT PRIMARY KEY AUTO_INCREMENT,
+	image VARCHAR(1024),
+	name VARCHAR(64),
+	birthday VARCHAR(64),
+	gender VARCHAR(64),
+	job VARCHAR(64),
+    createdDate DATETIME DEFAULT NOW()
+	)DEFAULT CHARACTER SET UTF8 COLLATE UTF8_GENERAL_CI
+'''
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
 
-### `npm test`
+### `make a database.json file in root folder`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+put mysql info into database.json file.
+## example
+'''
+{
+    "host":"",
+    "user":"",
+    "password":"",
+    "port":"",
+    "database":""
+}
+'''
 
-### `npm run build`
+### `Type " npm install " inside the root directory ( Download Server Dependencies )`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
+### `Type " npm install " inside the client directory ( Download Front-end Dependencies )`
 
 **Note: this is a one-way operation. Once you `eject`, you can’t go back!**
 
