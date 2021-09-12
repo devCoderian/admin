@@ -79,22 +79,6 @@ function Header() {
           <Typography className={classes.title} variant="h6" noWrap>
             고객 관리 시스템
           </Typography>
-          <div className={classes.search}>
-            <div className={classes.searchIcon}>
-              <SearchIcon />
-            </div>
-            <InputBase
-              placeholder="검색"
-              classes={{
-                root: classes.inputRoot,
-                input: classes.inputInput,
-              }}
-              name="searchKeyword"
-            //   value={searchKeyword}
-            //   onChange={handleValueChange}
-              inputProps={{ 'aria-label': 'search' }}
-            />
-          </div>
         </Toolbar>
       </AppBar>
     </div>
