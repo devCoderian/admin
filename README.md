@@ -47,8 +47,12 @@ put mysql info into database.json file.
 
 ## View Web App
 ![image](https://user-images.githubusercontent.com/87194565/132987355-19645d2b-6bed-4af9-90ee-ea5a8a377322.png)
+고객관리 리스트 페이지
 ![image](https://user-images.githubusercontent.com/87194565/132987393-dc0f2235-a48c-4c4e-8278-afc53a63472d.png)
+고객 추가 기능
 ![image](https://user-images.githubusercontent.com/87194565/132987497-8b4a989f-3d94-4668-b5a5-5e2e801215e2.png)
+프로필 이미지 업로드 기능
 ![image](https://user-images.githubusercontent.com/87194565/132987417-8d26c541-b78a-4329-a304-1c0040f93add.png)
 ![image](https://user-images.githubusercontent.com/87194565/132987463-4be09566-4f15-4300-b3a4-1cf11ce3a7b6.png)
+고객 삭제 기능
 
